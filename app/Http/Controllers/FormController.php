@@ -23,7 +23,10 @@ class FormController extends Controller
             $forms = Form::all();
         }
 
-        // Use the resource to format the collection of forms
+        /** Use the resource to format the collection of forms  
+         * 
+         * Eager loads relationships when accepting a slug as a parameter (i.e: /api/forms?slug=crf) 
+        */
         return FormResource::collection($forms);
     }
 
