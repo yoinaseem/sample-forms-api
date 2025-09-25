@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Casts\AsArrayObject;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class FormField extends Model
 {
@@ -35,5 +36,10 @@ class FormField extends Model
     public function section(): BelongsTo
     {
         return $this->belongsTo(FormSection::class);
+    }
+
+    public function submissionValues(): HasMany
+    {
+        return $this->hasMany(SubmissionValue::class);
     }
 }

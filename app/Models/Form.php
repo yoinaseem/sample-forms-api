@@ -25,4 +25,8 @@ class Form extends Model
     {
         return $this->hasMany(FormSection::class)->orderBy('order');
     }
+    public function submissions(): HasMany
+    {
+        return $this->hasMany(Submission::class);
+    }
 }
